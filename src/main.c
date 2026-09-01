@@ -1,5 +1,6 @@
 #include <linux/limits.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -10,12 +11,15 @@ char* get_working_directory();
 char* get_directory_contents(char* working_directory);
 
 int main(){
-    char* working_directory = get_working_directory();
-    char* working_directory_contents = get_directory_contents(working_directory);
-    printf("\n");
-    printf("%s\n\n", working_directory);
-    printf("%s", working_directory_contents);
+    // Comienzo del loop principal
+    while(true){
+        // Limpia la pantalla y mueve el cursor
+        printf("\x1b[2J\x1b[H");
 
+
+
+
+    }
     return 0;
 }
 
@@ -55,6 +59,7 @@ char* get_directory_contents(char* working_directory){
     //int status;
     char command[PATH_MAX];
     char line[PATH_MAX];
+    int index;
     char working_directory_contents[PATH_MAX] = {0};
 
     snprintf(command, sizeof(command), "ls -1p %s", working_directory);
